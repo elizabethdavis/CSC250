@@ -1,0 +1,29 @@
+<project name="Project_4" default="compile">
+
+	<target name ="compile" depends = "clean">	
+		<javac srcdir="."  classpath="."/>
+	</target>
+	
+	<target name ="clean">	
+		<delete>
+			<fileset dir="." includes="*.*~"/>
+			<fileset dir="." includes="**/*.class"/>
+			<fileset dir="." includes="**/*.txt"/>
+		</delete>
+		<delete dir="META-INF" failonerror="false"/>	
+	</target>
+	
+	<target name="jar">
+		<jar destfile="davise10.jar" includes="**/*.java build.xml" basedir="."/>
+	</target>
+
+	<target name= "run" depends="compile">
+		<java classname= "Driver" fork="true"/>
+	</target>
+
+	<target name="author">
+		<echo message= "Program coded by Elizabeth Davis"/>
+	</target>
+	
+	
+</project>
